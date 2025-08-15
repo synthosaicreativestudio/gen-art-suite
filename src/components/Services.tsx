@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { 
   Video, 
   Image, 
@@ -204,46 +205,59 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <Accordion type="single" collapsible className="space-y-6">
           {serviceCategories.map((category, index) => (
-            <Card key={index} className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 bg-card/50 backdrop-blur-sm border-border/50">
-              <CardHeader>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white`}>
-                    {category.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl font-bold text-foreground">
-                      {category.title}
-                    </CardTitle>
-                    <CardDescription className="text-muted-foreground">
-                      {category.description}
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {category.services.map((service, serviceIndex) => (
-                    <div key={serviceIndex} className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors duration-200">
-                      <div className="text-primary mt-1">
-                        {service.icon}
+            <AccordionItem key={index} value={`category-${index}`} className="border-border/30">
+              <Card className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 overflow-hidden">
+                <AccordionTrigger className="hover:no-underline px-0 py-0">
+                  <CardHeader className="w-full">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white shadow-lg animate-pulse hover:animate-none transition-all duration-300 group-hover:scale-110`}>
+                        {category.icon}
                       </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground mb-1">
-                          {service.name}
-                        </h4>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {service.description}
-                        </p>
+                      <div className="text-left flex-1">
+                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                          {category.title}
+                        </CardTitle>
+                        <CardDescription className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                          {category.description}
+                        </CardDescription>
                       </div>
+                      <Badge variant="secondary" className="ml-auto animate-bounce group-hover:animate-pulse">
+                        {category.services.length} услуг
+                      </Badge>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent className="px-0 pb-0">
+                  <CardContent className="pt-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {category.services.map((service, serviceIndex) => (
+                        <div 
+                          key={serviceIndex} 
+                          className="group/service flex items-start gap-3 p-4 rounded-lg bg-secondary/30 hover:bg-secondary/60 hover:shadow-md transition-all duration-300 border border-border/20 hover:border-primary/20 hover:scale-[1.02] animate-fade-in"
+                          style={{ animationDelay: `${serviceIndex * 100}ms` }}
+                        >
+                          <div className="text-primary mt-1 group-hover/service:scale-110 group-hover/service:text-accent transition-all duration-300">
+                            {service.icon}
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="font-semibold text-foreground mb-2 group-hover/service:text-primary transition-colors duration-300">
+                              {service.name}
+                            </h4>
+                            <p className="text-sm text-muted-foreground leading-relaxed group-hover/service:text-foreground/80 transition-colors duration-300">
+                              {service.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );
