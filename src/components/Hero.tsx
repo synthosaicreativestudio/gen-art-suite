@@ -20,9 +20,9 @@ const Hero = () => {
       <div className="absolute bottom-32 left-20 w-3 h-3 bg-primary-glow rounded-full animate-float opacity-50" style={{ animationDelay: '4s' }} />
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 mt-32">
         <div className="animate-float">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: "hsl(20, 100%, 55%)" }}>
+          <h1 className="text-4xl md:text-6xl font-bold mb-2" style={{ color: "hsl(20, 100%, 55%)" }}>
             SYNTHOS AI
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent leading-tight">
