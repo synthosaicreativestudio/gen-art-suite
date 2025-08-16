@@ -3,6 +3,8 @@ import { Clock, Zap, Shield, Sparkles } from "lucide-react";
 import aiVideoImage from "@/assets/ai-video.jpg";
 import aiPersonalizationImage from "@/assets/ai-personalization-new.jpg";
 import aiAssistantImage from "@/assets/ai-assistant.jpg";
+import aiInnovationImage from "@/assets/ai-innovation.jpg";
+import aiQualityImage from "@/assets/ai-quality.jpg";
 
 const Features = () => {
   const features = [
@@ -16,13 +18,13 @@ const Features = () => {
       icon: <Zap className="w-8 h-8" />,
       title: "Инновационные технологии",  
       description: "Используем последние достижения в области искусственного интеллекта",
-      image: aiPersonalizationImage
+      image: aiInnovationImage
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Гарантия качества",
       description: "100% уникальный контент без нарушения авторских прав",
-      image: aiAssistantImage
+      image: aiQualityImage
     },
     {
       icon: <Sparkles className="w-8 h-8" />,

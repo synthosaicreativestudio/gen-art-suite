@@ -181,7 +181,7 @@ All colors MUST be HSL.
   }
   
   .animate-ai-pulse {
-    animation: ai-pulse 5s ease-in-out infinite alternate;
+    animation: ai-pulse 25s ease-in-out infinite alternate;
   }
 }
 
