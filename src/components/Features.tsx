@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Zap, Shield, Sparkles } from "lucide-react";
 import aiVideoImage from "@/assets/ai-video.jpg";
-import aiAnalyticsImage from "@/assets/ai-analytics.jpg";
+import aiPersonalizationImage from "@/assets/ai-personalization.jpg";
 import aiAssistantImage from "@/assets/ai-assistant.jpg";
 
 const Features = () => {
@@ -14,9 +14,9 @@ const Features = () => {
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Инновационные технологии",
+      title: "Инновационные технологии",  
       description: "Используем последние достижения в области искусственного интеллекта",
-      image: aiAnalyticsImage
+      image: aiPersonalizationImage
     },
     {
       icon: <Shield className="w-8 h-8" />,
@@ -26,9 +26,9 @@ const Features = () => {
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
-      title: "Персонализация",
+      title: "Персонализация", 
       description: "Каждое решение адаптируется под ваши потребности и бренд",
-      image: aiVideoImage
+      image: aiPersonalizationImage
     }
   ];
 

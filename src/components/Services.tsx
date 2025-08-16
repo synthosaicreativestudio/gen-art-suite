@@ -212,7 +212,7 @@ const Services = () => {
                 <AccordionTrigger className="hover:no-underline px-0 py-0">
                   <CardHeader className="w-full">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white shadow-lg animate-pulse hover:animate-none transition-all duration-300 group-hover:scale-110`}>
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white shadow-lg animate-gentle-pulse hover:animate-none transition-all duration-300 group-hover:scale-110`}>
                         {category.icon}
                       </div>
                       <div className="text-left flex-1">

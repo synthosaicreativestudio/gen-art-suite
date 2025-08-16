@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Phone } from "lucide-react";
+import { ArrowRight, Mail, Phone, MessageCircle, PhoneCall } from "lucide-react";
 
 const CTA = () => {
   return (
@@ -24,11 +24,21 @@ const CTA = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-4 group">
+              <Button 
+                variant="hero" 
+                size="lg" 
+                className="text-lg px-8 py-4 group"
+                onClick={() => window.location.href = 'mailto:synthosaicreativestudio@gmail.com?subject=Начать проект&body=Здравствуйте! Хочу обсудить возможность создания AI-проекта.'}
+              >
                 Начать проект
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-4"
+                onClick={() => window.location.href = 'mailto:synthosaicreativestudio@gmail.com?subject=Консультация&body=Здравствуйте! Хочу получить консультацию по AI-решениям.'}
+              >
                 Получить консультацию
               </Button>
             </div>
@@ -36,11 +46,33 @@ const CTA = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>info@ai-studio.ru</span>
+                <span>synthosaicreativestudio@gmail.com</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-primary" />
-                <span>+7 (999) 123-45-67</span>
+              <div className="flex flex-col items-center gap-2">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span>+79827701055</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm">
+                  <a 
+                    href="https://wa.me/79827701055" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-green-500 hover:text-green-400 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                  <a 
+                    href="https://t.me/+79827701055" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-blue-500 hover:text-blue-400 transition-colors"
+                  >
+                    <PhoneCall className="w-4 h-4" />
+                    Telegram
+                  </a>
+                </div>
               </div>
             </div>
           </div>
