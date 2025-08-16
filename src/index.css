@@ -20,6 +20,7 @@ All colors MUST be HSL.
     --primary: 263 70% 50%;
     --primary-foreground: 0 0% 98%;
     --primary-glow: 270 100% 70%;
+    --fire-orange: 20 100% 55%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -177,5 +178,20 @@ All colors MUST be HSL.
   
   .animate-gentle-pulse {
     animation: gentle-pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-ai-pulse {
+    animation: ai-pulse 5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes ai-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
   }
 }

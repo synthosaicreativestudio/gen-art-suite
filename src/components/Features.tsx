@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Zap, Shield, Sparkles } from "lucide-react";
 import aiVideoImage from "@/assets/ai-video.jpg";
-import aiPersonalizationImage from "@/assets/ai-personalization.jpg";
+import aiPersonalizationImage from "@/assets/ai-personalization-new.jpg";
 import aiAssistantImage from "@/assets/ai-assistant.jpg";
 
 const Features = () => {

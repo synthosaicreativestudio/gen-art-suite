@@ -3,7 +3,7 @@ import { ArrowRight, Mail, Phone, MessageCircle, PhoneCall } from "lucide-react"
 
 const CTA = () => {
   return (
-    <section className="py-20 px-6">
+    <section id="cta-section" className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <div className="relative">
           {/* Background glow effect */}

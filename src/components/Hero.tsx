@@ -22,9 +22,12 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6">
         <div className="animate-float">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent leading-tight">
-            AI-студия нового поколения
+          <h1 className="text-2xl md:text-3xl font-bold mb-2" style={{ color: "hsl(20, 100%, 55%)" }}>
+            SYNTHOS AI
           </h1>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent leading-tight">
+            AI-студия нового поколения
+          </h2>
         </div>
         
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -33,7 +36,15 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+          <Button 
+            variant="hero" 
+            size="lg" 
+            className="text-lg px-8 py-4"
+            onClick={() => {
+              const ctaSection = document.querySelector('#cta-section');
+              ctaSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Начать проект
           </Button>
           <Button variant="outline" size="lg" className="text-lg px-8 py-4">
