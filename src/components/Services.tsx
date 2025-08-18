@@ -224,7 +224,7 @@ const Services = () => {
                         </CardDescription>
                       </div>
                       <Badge variant="secondary" className="ml-auto animate-bounce group-hover:animate-pulse">
-                        {category.services.length} услуг
+                        {category.services.length} {category.services.length === 1 ? 'услуга' : category.services.length < 5 ? 'услуги' : 'услуг'}
                       </Badge>
                     </div>
                   </CardHeader>

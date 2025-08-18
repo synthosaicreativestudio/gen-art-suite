@@ -22,7 +22,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6 mt-32">
         <div className="animate-float">
-          <h1 className="text-4xl md:text-6xl font-bold mb-2" style={{ color: "hsl(20, 100%, 55%)" }}>
+          <h1 className="text-4xl md:text-6xl font-bold mb-2 synthos-3d-text">
             SYNTHOS AI
           </h1>
           <h2 className="text-2xl md:text-3xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent leading-tight">
