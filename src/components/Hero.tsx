@@ -63,8 +63,8 @@ const Hero = () => {
             <div className="text-muted-foreground">AI-сервисов</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary-glow mb-2">∞</div>
-            <div className="text-muted-foreground">Возможностей</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary-glow mb-2">100%</div>
+            <div className="text-muted-foreground">Успешных проектов</div>
           </div>
         </div>
       </div>
