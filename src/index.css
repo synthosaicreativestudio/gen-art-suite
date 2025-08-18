@@ -8,38 +8,42 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card-foreground: 240 10% 3.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
+    --popover-foreground: 240 10% 3.9%;
 
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --primary-glow: 280 100% 70%;
-    --fire-orange: 20 100% 55%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 200 100% 60%;
+    --fire-orange: 25 95% 53%;
 
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
+    --secondary: 210 40% 95%;
+    --secondary-foreground: 210 10% 23%;
 
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
+    --muted: 210 40% 95%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    --accent: 210 40% 95%;
+    --accent-foreground: 210 10% 23%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
 
-    --success: 142 76% 36%;
-    --success-foreground: 355.7 100% 97.3%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 50%), hsl(200, 100%, 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210, 40%, 95%), hsl(200, 40%, 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 98%), hsl(210, 40%, 95%));
 
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
@@ -156,69 +160,79 @@ All colors MUST be HSL.
 
   /* Float animation for decorative elements */
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(2deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
   
   /* Gentle pulse animation */
   @keyframes gentle-pulse {
     0%, 100% { 
-      opacity: 1;
-      transform: scale(1);
+      opacity: 0.8;
+      transform: scale(1) rotate(0deg);
     }
     50% { 
-      opacity: 0.7;
-      transform: scale(1.05);
+      opacity: 1;
+      transform: scale(1.1) rotate(180deg);
     }
   }
   
   .animate-gentle-pulse {
-    animation: gentle-pulse 3s ease-in-out infinite;
+    animation: gentle-pulse 4s ease-in-out infinite;
   }
   
   .animate-ai-pulse {
-    animation: ai-pulse 25s ease-in-out infinite alternate;
+    animation: ai-pulse 15s ease-in-out infinite alternate;
   }
 
   /* 3D Text Effect for SYNTHOS AI */
   .synthos-3d-text {
-    background: linear-gradient(45deg, #FFD700, #FFA500, #FF8C00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #FFD700;
     text-shadow: 
-      0 1px 0 #ccc,
-      0 2px 0 #c9c9c9,
-      0 3px 0 #bbb,
-      0 4px 0 #b9b9b9,
-      0 5px 0 #aaa,
-      0 6px 1px rgba(0,0,0,.1),
-      0 0 5px rgba(0,0,0,.1),
-      0 1px 3px rgba(0,0,0,.3),
-      0 3px 5px rgba(0,0,0,.2),
-      0 5px 10px rgba(0,0,0,.25),
-      0 10px 10px rgba(0,0,0,.2),
-      0 20px 20px rgba(0,0,0,.15);
-    transform: perspective(500px) rotateX(15deg);
+      1px 1px 0 #B8860B,
+      2px 2px 0 #B8860B,
+      3px 3px 0 #B8860B,
+      4px 4px 0 #B8860B,
+      5px 5px 0 #B8860B,
+      6px 6px 0 #B8860B,
+      7px 7px 0 #B8860B,
+      8px 8px 0 #B8860B,
+      9px 9px 0 rgba(0,0,0,0.7),
+      10px 10px 0 rgba(0,0,0,0.6),
+      11px 11px 0 rgba(0,0,0,0.5),
+      12px 12px 0 rgba(0,0,0,0.4),
+      13px 13px 0 rgba(0,0,0,0.3),
+      14px 14px 0 rgba(0,0,0,0.2),
+      15px 15px 0 rgba(0,0,0,0.1),
+      16px 16px 10px rgba(0,0,0,0.4),
+      20px 20px 15px rgba(0,0,0,0.3),
+      25px 25px 20px rgba(0,0,0,0.2);
+    transform: perspective(1000px) rotateX(25deg);
     transition: all 0.3s ease;
+    filter: drop-shadow(0 0 10px #FFD700);
   }
 
   .synthos-3d-text:hover {
-    transform: perspective(500px) rotateX(20deg) scale(1.05);
+    transform: perspective(1000px) rotateX(30deg) scale(1.05);
+    filter: drop-shadow(0 0 15px #FFD700);
   }
 }
 
 @keyframes ai-pulse {
   0% {
-    transform: scale(1);
-    opacity: 0.8;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+    opacity: 1;
   }
   100% {
-    transform: scale(1.1);
-    opacity: 1;
+    transform: scale(1) rotate(360deg);
+    opacity: 0.7;
   }
 }

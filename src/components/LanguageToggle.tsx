@@ -1,9 +1,9 @@
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LanguageToggle = () => {
-  const [language, setLanguage] = useState("RU");
+  const { language, setLanguage } = useLanguage();
 
   return (
     <Button
