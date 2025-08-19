@@ -1,6 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { 
   Video, 
   Image, 
@@ -23,90 +25,101 @@ import {
   UserCog,
   Building,
   FileStack,
-  ClipboardList
+  ClipboardList,
+  ChevronDown,
+  Info,
+  DollarSign
 } from "lucide-react";
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const serviceCategories = [
     {
-      title: "AI-контент нового поколения",
-      description: "Создание высококачественного контента с помощью ИИ",
+      title: t('category.ai_content.title'),
+      description: t('category.ai_content.description'),
       icon: <Video className="w-8 h-8" />,
       gradient: "from-purple-500 to-pink-500",
       services: [
         {
-          name: "AI-Video",
+          key: "ai_video",
+          name: t('service.ai_video.name'),
           description: "Создание видеороликов любой сложности — от короткой рекламы до полноценных фильмов",
           icon: <Video className="w-5 h-5" />
         },
         {
-          name: "AI-Photo & Images", 
+          key: "ai_photo",
+          name: t('service.ai_photo.name'), 
           description: "Разработка уникальных визуальных материалов без фотосессий",
           icon: <Image className="w-5 h-5" />
         },
         {
-          name: "AI-Logo",
+          key: "ai_logo",
+          name: t('service.ai_logo.name'),
           description: "Быстрое создание уникального дизайна логотипа и полного бренд-пакета за 24 часа",
           icon: <Palette className="w-5 h-5" />
         },
         {
-          name: "AI-модели & примерка одежды",
+          key: "ai_models",
+          name: t('service.ai_models.name'),
           description: "Реалистичные цифровые модели и виртуальная примерка одежды",
           icon: <Users className="w-5 h-5" />
         },
         {
-          name: "AI-Avatars",
+          key: "ai_avatars",
+          name: t('service.ai_avatars.name'),
           description: "Создание цифрового аватара на основе вашего образа и голоса",
           icon: <User className="w-5 h-5" />
         },
         {
-          name: "AI-Music",
+          key: "ai_music",
+          name: t('service.ai_music.name'),
           description: "Генерация авторских музыкальных композиций под заданный стиль и настроение",
           icon: <Music className="w-5 h-5" />
-        },
-        {
-          name: "AI-копирайтинг",
-          description: "Создание SEO-оптимизированного текстового контента",
-          icon: <FileText className="w-5 h-5" />
         }
       ]
     },
     {
-      title: "Презентации и голосовые решения",
-      description: "Автоматизация создания презентаций и синтез голоса",
+      title: t('category.presentations.title'),
+      description: t('category.presentations.description'),
       icon: <Presentation className="w-8 h-8" />,
       gradient: "from-blue-500 to-cyan-500",
       services: [
         {
-          name: "AI-Presentations",
+          key: "ai_presentations",
+          name: t('service.ai_presentations.name'),
           description: "Автоматическое создание стильных презентаций с графикой и анимацией",
           icon: <Presentation className="w-5 h-5" />
         },
         {
-          name: "AI-Voice Synthesis",
+          key: "ai_voice",
+          name: t('service.ai_voice.name'),
           description: "Синтез голоса для озвучивания любого текста или видео",
           icon: <Mic className="w-5 h-5" />
         }
       ]
     },
     {
-      title: "Веб-решения на базе AI",
-      description: "Разработка сайтов, приложений и автоматизация процессов",
+      title: t('category.web_solutions.title'),
+      description: t('category.web_solutions.description'),
       icon: <Globe className="w-8 h-8" />,
       gradient: "from-green-500 to-emerald-500",
       services: [
         {
-          name: "Сайты и лендинги",
+          key: "websites",
+          name: t('service.websites.name'),
           description: "Разработка сайтов «под ключ» с современным дизайном за 5–7 дней",
           icon: <Globe className="w-5 h-5" />
         },
         {
-          name: "Мобильные и веб-приложения",
+          key: "apps",
+          name: t('service.apps.name'),
           description: "Разработка MVP и готовых приложений с функциями ИИ",
           icon: <Smartphone className="w-5 h-5" />
         },
         {
-          name: "Автоматизация бизнес-процессов",
+          key: "automation",
+          name: t('service.automation.name'),
           description: "Автоматизация рутинных операций и управления CRM",
           icon: <Bot className="w-5 h-5" />
         }
@@ -198,10 +211,10 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-            Наши AI-услуги
+            {t('services.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Полный спектр AI-решений для автоматизации и развития вашего бизнеса
+            {t('services.description')}
           </p>
         </div>
 
@@ -224,7 +237,7 @@ const Services = () => {
                         </CardDescription>
                       </div>
                       <Badge variant="secondary" className="ml-auto animate-bounce group-hover:animate-pulse">
-                        {category.services.length} {category.services.length === 1 ? 'услуга' : category.services.length < 5 ? 'услуги' : 'услуг'}
+                        {category.services.length} {category.services.length === 1 ? t('services.count.singular') : category.services.length < 5 ? t('services.count.few') : t('services.count.many')}
                       </Badge>
                     </div>
                   </CardHeader>
@@ -233,23 +246,69 @@ const Services = () => {
                   <CardContent className="pt-0">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {category.services.map((service, serviceIndex) => (
-                        <div 
-                          key={serviceIndex} 
-                          className="group/service flex items-start gap-3 p-4 rounded-lg bg-secondary/30 hover:bg-secondary/60 hover:shadow-md transition-all duration-300 border border-border/20 hover:border-primary/20 hover:scale-[1.02] animate-fade-in"
-                          style={{ animationDelay: `${serviceIndex * 100}ms` }}
-                        >
-                          <div className="text-primary mt-1 group-hover/service:scale-110 group-hover/service:text-accent transition-all duration-300">
-                            {service.icon}
+                        <Collapsible key={serviceIndex}>
+                          <div 
+                            className="group/service rounded-lg bg-secondary/30 hover:bg-secondary/60 hover:shadow-md transition-all duration-300 border border-border/20 hover:border-primary/20 animate-fade-in overflow-hidden"
+                            style={{ animationDelay: `${serviceIndex * 100}ms` }}
+                          >
+                            <CollapsibleTrigger className="w-full p-4 text-left hover:bg-secondary/40 transition-colors duration-200">
+                              <div className="flex items-start gap-3">
+                                <div className="text-primary mt-1 group-hover/service:scale-110 group-hover/service:text-accent transition-all duration-300">
+                                  {service.icon}
+                                </div>
+                                <div className="flex-1">
+                                  <div className="flex items-center justify-between">
+                                    <h4 className="font-semibold text-foreground mb-2 group-hover/service:text-primary transition-colors duration-300">
+                                      {service.name}
+                                    </h4>
+                                    <ChevronDown className="w-4 h-4 text-muted-foreground group-hover/service:text-primary transition-all duration-300 data-[state=open]:rotate-180" />
+                                  </div>
+                                  <p className="text-sm text-muted-foreground leading-relaxed group-hover/service:text-foreground/80 transition-colors duration-300">
+                                    {service.description}
+                                  </p>
+                                </div>
+                              </div>
+                            </CollapsibleTrigger>
+                            
+                            <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                              <div className="px-4 pb-4 pt-2 border-t border-border/30 bg-background/50">
+                                <div className="space-y-4">
+                                  <div className="flex items-start gap-2">
+                                    <Info className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <h5 className="font-medium text-sm text-foreground mb-1">{t('service.details.description')}</h5>
+                                      <p className="text-xs text-muted-foreground leading-relaxed">{t(`service.${service.key}.description`)}</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="flex items-start gap-2">
+                                    <Target className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <h5 className="font-medium text-sm text-foreground mb-1">{t('service.details.target')}</h5>
+                                      <p className="text-xs text-muted-foreground leading-relaxed">{t(`service.${service.key}.target`)}</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="flex items-start gap-2">
+                                    <BarChart3 className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <h5 className="font-medium text-sm text-foreground mb-1">{t('service.details.goals')}</h5>
+                                      <p className="text-xs text-muted-foreground leading-relaxed">{t(`service.${service.key}.goals`)}</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div className="flex items-center gap-2 p-3 bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg border border-primary/20">
+                                    <DollarSign className="w-4 h-4 text-primary flex-shrink-0" />
+                                    <div>
+                                      <h5 className="font-semibold text-sm text-foreground">{t('service.details.price')}</h5>
+                                      <p className="text-sm font-bold text-primary">{t(`service.${service.key}.price`)}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </CollapsibleContent>
                           </div>
-                          <div className="flex-1">
-                            <h4 className="font-semibold text-foreground mb-2 group-hover/service:text-primary transition-colors duration-300">
-                              {service.name}
-                            </h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed group-hover/service:text-foreground/80 transition-colors duration-300">
-                              {service.description}
-                            </p>
-                          </div>
-                        </div>
+                        </Collapsible>
                       ))}
                     </div>
                   </CardContent>
