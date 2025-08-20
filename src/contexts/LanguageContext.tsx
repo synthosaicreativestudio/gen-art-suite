@@ -114,6 +114,24 @@ const translations = {
     'service.automation.goals': 'Снизить рутину и ошибки, сэкономить время сотрудников, повысить эффективность работы ежедневно',
     'service.automation.price': 'от 50 000 ₽',
 
+    // Features
+    'features.title': 'Почему выбирают нас',
+    'features.description': 'Мы сочетаем передовые AI-технологии с пониманием бизнеса',
+    'features.fast_development.title': 'Быстрая разработка',
+    'features.fast_development.description': 'Проекты готовы за 24-48 часов благодаря ИИ-автоматизации',
+    'features.innovation.title': 'Инновационные технологии',
+    'features.innovation.description': 'Используем последние достижения в области искусственного интеллекта',
+    'features.quality.title': 'Гарантия качества',
+    'features.quality.description': '100% уникальный контент без нарушения авторских прав',
+    'features.personalization.title': 'Персонализация',
+    'features.personalization.description': 'Каждое решение адаптируется под ваши потребности и бренд',
+    
+    // CTA
+    'cta.title': 'Готовы начать?',
+    'cta.description': 'Превратите ваши идеи в реальность с помощью наших AI-решений. Получите консультацию и начните проект уже сегодня.',
+    'cta.start_project': 'Начать проект',
+    'cta.get_consultation': 'Получить консультацию',
+
     // Labels
     'service.details.description': 'Описание',
     'service.details.target': 'Для кого подходит',
@@ -224,6 +242,24 @@ const translations = {
     'service.automation.target': 'Small and medium businesses, accounting and HR departments',
     'service.automation.goals': 'Reduce routine and errors, save employee time, increase daily work efficiency',
     'service.automation.price': 'from $670',
+
+    // Features
+    'features.title': 'Why Choose Us',
+    'features.description': 'We combine cutting-edge AI technologies with business understanding',
+    'features.fast_development.title': 'Fast Development',
+    'features.fast_development.description': 'Projects ready in 24-48 hours thanks to AI automation',
+    'features.innovation.title': 'Innovative Technologies',
+    'features.innovation.description': 'Using the latest achievements in artificial intelligence',
+    'features.quality.title': 'Quality Guarantee',
+    'features.quality.description': '100% unique content without copyright infringement',
+    'features.personalization.title': 'Personalization',
+    'features.personalization.description': 'Each solution is adapted to your needs and brand',
+    
+    // CTA
+    'cta.title': 'Ready to start?',
+    'cta.description': 'Turn your ideas into reality with our AI solutions. Get consultation and start your project today.',
+    'cta.start_project': 'Start Project',
+    'cta.get_consultation': 'Get Consultation',
 
     // Labels
     'service.details.description': 'Description',

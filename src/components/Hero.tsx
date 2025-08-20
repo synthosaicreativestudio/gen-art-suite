@@ -36,22 +36,6 @@ const Hero = () => {
           {t('hero.description')}
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            variant="hero" 
-            size="lg" 
-            className="text-lg px-8 py-4"
-            onClick={() => {
-              const ctaSection = document.querySelector('#cta-section');
-              ctaSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            {t('hero.start_project')}
-          </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-            {t('hero.view_services')}
-          </Button>
-        </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 pt-8 border-t border-border/20">

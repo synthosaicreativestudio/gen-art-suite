@@ -8,49 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
+    /* Hi-tech AI Light Theme Colors */
+    --background: 195 100% 96%;
+    --foreground: 210 40% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 210 40% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 210 40% 15%;
 
-    --primary: 210 100% 50%;
+    --primary: 195 100% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 200 100% 60%;
+    --primary-glow: 180 100% 50%;
     --fire-orange: 25 95% 53%;
 
-    --secondary: 210 40% 95%;
-    --secondary-foreground: 210 10% 23%;
+    --secondary: 195 50% 92%;
+    --secondary-foreground: 210 40% 20%;
 
-    --muted: 210 40% 95%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 195 30% 88%;
+    --muted-foreground: 210 20% 40%;
 
-    --accent: 210 40% 95%;
-    --accent-foreground: 210 10% 23%;
+    --accent: 165 100% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 20% 98%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 210 100% 50%;
+    --border: 195 30% 85%;
+    --input: 195 25% 90%;
+    --ring: 195 100% 45%;
 
     --success: 142 71% 45%;
     --success-foreground: 0 0% 98%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(210, 100%, 50%), hsl(200, 100%, 60%));
-    --gradient-secondary: linear-gradient(135deg, hsl(210, 40%, 95%), hsl(200, 40%, 90%));
-    --gradient-hero: linear-gradient(135deg, hsl(0, 0%, 98%), hsl(210, 40%, 95%));
+    /* Hi-tech AI Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 45%), hsl(180 100% 50%), hsl(165 100% 40%));
+    --gradient-secondary: linear-gradient(135deg, hsl(195 50% 92%), hsl(195 30% 88%));
+    --gradient-hero: linear-gradient(135deg, hsl(195 100% 96%), hsl(195 50% 92%));
 
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
-    --gradient-hero: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(260 20% 8%));
-
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-elegant: 0 20px 40px -10px hsl(var(--primary) / 0.2);
+    --shadow-glow: 0 0 40px hsl(195 100% 45% / 0.3);
+    --shadow-elegant: 0 20px 40px -10px hsl(195 100% 45% / 0.2);
 
     --animation-float: float 6s ease-in-out infinite;
     --animation-glow: glow 2s ease-in-out infinite alternate;

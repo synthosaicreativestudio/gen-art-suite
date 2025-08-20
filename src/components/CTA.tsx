@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Phone, MessageCircle, PhoneCall } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CTA = () => {
+  const { t } = useLanguage();
   return (
     <section id="cta-section" className="py-20 px-6">
       <div className="max-w-4xl mx-auto text-center">
@@ -15,12 +17,11 @@ const CTA = () => {
             <div className="absolute bottom-4 left-4 w-6 h-6 bg-accent rounded-full animate-float opacity-40" style={{ animationDelay: '2s' }} />
             
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-              Готовы начать?
+              {t('cta.title')}
             </h2>
             
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Превратите ваши идеи в реальность с помощью наших AI-решений. 
-              Получите консультацию и начните проект уже сегодня.
+              {t('cta.description')}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -30,7 +31,7 @@ const CTA = () => {
                 className="text-lg px-8 py-4 group"
                 onClick={() => window.location.href = 'mailto:synthosaicreativestudio@gmail.com?subject=Начать проект&body=Здравствуйте! Хочу обсудить возможность создания AI-проекта.'}
               >
-                Начать проект
+                {t('cta.start_project')}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
@@ -39,7 +40,7 @@ const CTA = () => {
                 className="text-lg px-8 py-4"
                 onClick={() => window.location.href = 'mailto:synthosaicreativestudio@gmail.com?subject=Консультация&body=Здравствуйте! Хочу получить консультацию по AI-решениям.'}
               >
-                Получить консультацию
+                {t('cta.get_consultation')}
               </Button>
             </div>
             

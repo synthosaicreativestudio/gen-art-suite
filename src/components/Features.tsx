@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Zap, Shield, Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import aiVideoImage from "@/assets/ai-video.jpg";
 import aiPersonalizationImage from "@/assets/ai-personalization-new.jpg";
 import aiAssistantImage from "@/assets/ai-assistant.jpg";
@@ -7,29 +8,31 @@ import aiInnovationImage from "@/assets/ai-innovation.jpg";
 import aiQualityImage from "@/assets/ai-quality.jpg";
 
 const Features = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: <Clock className="w-8 h-8" />,
-      title: "Быстрая разработка",
-      description: "Проекты готовы за 24-48 часов благодаря ИИ-автоматизации",
+      title: t('features.fast_development.title'),
+      description: t('features.fast_development.description'),
       image: aiVideoImage
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Инновационные технологии",  
-      description: "Используем последние достижения в области искусственного интеллекта",
+      title: t('features.innovation.title'),
+      description: t('features.innovation.description'),
       image: aiInnovationImage
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Гарантия качества",
-      description: "100% уникальный контент без нарушения авторских прав",
+      title: t('features.quality.title'),
+      description: t('features.quality.description'),
       image: aiQualityImage
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
-      title: "Персонализация", 
-      description: "Каждое решение адаптируется под ваши потребности и бренд",
+      title: t('features.personalization.title'),
+      description: t('features.personalization.description'),
       image: aiPersonalizationImage
     }
   ];
@@ -39,10 +42,10 @@ const Features = () => {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent">
-            Почему выбирают нас
+            {t('features.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Мы сочетаем передовые AI-технологии с пониманием бизнеса
+            {t('features.description')}
           </p>
         </div>
 
