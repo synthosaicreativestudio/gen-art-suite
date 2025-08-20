@@ -1,15 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "next-themes";
 import heroImage from "@/assets/hero-ai.jpg";
+import heroImageLight from "@/assets/hero-ai-light.jpg";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const currentHeroImage = theme === 'light' ? heroImageLight : heroImage;
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src={heroImage} 
+          src={currentHeroImage} 
           alt="AI Technology" 
           className="w-full h-full object-cover opacity-20"
         />

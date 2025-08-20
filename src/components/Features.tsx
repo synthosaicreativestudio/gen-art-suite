@@ -1,39 +1,46 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Zap, Shield, Sparkles } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "next-themes";
 import aiVideoImage from "@/assets/ai-video.jpg";
 import aiPersonalizationImage from "@/assets/ai-personalization-new.jpg";
 import aiAssistantImage from "@/assets/ai-assistant.jpg";
 import aiInnovationImage from "@/assets/ai-innovation.jpg";
 import aiQualityImage from "@/assets/ai-quality.jpg";
+// Light theme images
+import aiDevelopmentLight from "@/assets/ai-development-light.jpg";
+import aiInnovationLight from "@/assets/ai-innovation-light.jpg";
+import aiQualityLight from "@/assets/ai-quality-light.jpg";
+import aiPersonalizationLight from "@/assets/ai-personalization-light.jpg";
 
 const Features = () => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
   
   const features = [
     {
       icon: <Clock className="w-8 h-8" />,
       title: t('features.fast_development.title'),
       description: t('features.fast_development.description'),
-      image: aiVideoImage
+      image: theme === 'light' ? aiDevelopmentLight : aiVideoImage
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: t('features.innovation.title'),
       description: t('features.innovation.description'),
-      image: aiInnovationImage
+      image: theme === 'light' ? aiInnovationLight : aiInnovationImage
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: t('features.quality.title'),
       description: t('features.quality.description'),
-      image: aiQualityImage
+      image: theme === 'light' ? aiQualityLight : aiQualityImage
     },
     {
       icon: <Sparkles className="w-8 h-8" />,
       title: t('features.personalization.title'),
       description: t('features.personalization.description'),
-      image: aiPersonalizationImage
+      image: theme === 'light' ? aiPersonalizationLight : aiPersonalizationImage
     }
   ];
 

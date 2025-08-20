@@ -16,7 +16,7 @@ const translations = {
     // Hero
     'hero.title': 'SYNTHOS AI',
     'hero.subtitle': 'AI-студия нового поколения',
-    'hero.description': 'Создаём будущее с помощью искусственного интеллекта. От контента до автоматизации — мы превращаем ваши идеи в инновационные решения.',
+    'hero.description': 'Инновационные решения для бизнеса, жизни и развлечений',
     'hero.start_project': 'Начать проект',
     'hero.view_services': 'Посмотреть услуги',
     'hero.stat.time': '24ч',
@@ -145,7 +145,7 @@ const translations = {
     // Hero
     'hero.title': 'SYNTHOS AI',
     'hero.subtitle': 'Next-generation AI studio',
-    'hero.description': 'Creating the future with artificial intelligence. From content to automation — we turn your ideas into innovative solutions.',
+    'hero.description': 'Innovative solutions for business, life and entertainment',
     'hero.start_project': 'Start Project',
     'hero.view_services': 'View Services',
     'hero.stat.time': '24h',
