@@ -137,6 +137,15 @@ const translations = {
     'service.details.target': 'Для кого подходит',
     'service.details.goals': 'Цели и результат',
     'service.details.price': 'Стоимость',
+
+    // Education
+    'education.title': 'Обучение',
+    'education.youtube': 'SYNTHOS YouTube',
+    'education.telegram': 'SYNTHOS TG',
+    'education.google': 'SYNTHOS Google',
+
+    // Our Works
+    'ourWorks': 'Наши работы'
   },
   EN: {
     // Header
@@ -266,6 +275,15 @@ const translations = {
     'service.details.target': 'Target Audience',
     'service.details.goals': 'Goals and Results',
     'service.details.price': 'Price',
+
+    // Education
+    'education.title': 'Training',
+    'education.youtube': 'SYNTHOS YouTube',
+    'education.telegram': 'SYNTHOS TG',
+    'education.google': 'SYNTHOS Google',
+
+    // Our Works
+    'ourWorks': 'Our Works'
   }
 };
 

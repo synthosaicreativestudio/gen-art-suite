@@ -28,7 +28,11 @@ import {
   ClipboardList,
   ChevronDown,
   Info,
-  DollarSign
+  DollarSign,
+  Play,
+  Send,
+  FolderOpen,
+  ExternalLink
 } from "lucide-react";
 
 const Services = () => {
@@ -317,6 +321,83 @@ const Services = () => {
             </AccordionItem>
           ))}
         </Accordion>
+
+        {/* Education Section */}
+        <div className="mt-16">
+          <Accordion type="single" collapsible className="space-y-6">
+            <AccordionItem value="education" className="border-border/30">
+              <Card className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 overflow-hidden">
+                <AccordionTrigger className="hover:no-underline px-0 py-0">
+                  <CardHeader className="w-full">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg transition-all duration-300 group-hover:scale-110">
+                        <FileText className="w-8 h-8" />
+                      </div>
+                      <div className="text-left flex-1">
+                        <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                          {t('education.title')}
+                        </CardTitle>
+                        <CardDescription className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
+                          Образовательные материалы и ресурсы
+                        </CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent className="px-0 pb-0">
+                  <CardContent className="pt-0">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <a
+                        href="#"
+                        className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10 group"
+                      >
+                        <Play className="w-6 h-6 text-red-500 group-hover:scale-110 transition-transform duration-300" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{t('education.youtube')}</h4>
+                          <ExternalLink className="w-4 h-4 text-muted-foreground mt-1" />
+                        </div>
+                      </a>
+
+                      <a
+                        href="#"
+                        className="flex items-center gap-3 p-4 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group"
+                      >
+                        <Send className="w-6 h-6 text-blue-500 group-hover:scale-110 transition-transform duration-300" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{t('education.telegram')}</h4>
+                          <ExternalLink className="w-4 h-4 text-muted-foreground mt-1" />
+                        </div>
+                      </a>
+
+                      <a
+                        href="#"
+                        className="flex items-center gap-3 p-4 rounded-lg bg-green-500/10 hover:bg-green-500/20 border border-green-500/20 hover:border-green-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10 group"
+                      >
+                        <FolderOpen className="w-6 h-6 text-green-500 group-hover:scale-110 transition-transform duration-300" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{t('education.google')}</h4>
+                          <ExternalLink className="w-4 h-4 text-muted-foreground mt-1" />
+                        </div>
+                      </a>
+                    </div>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* Our Works Button */}
+        <div className="mt-8 text-center">
+          <a
+            href="#"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-accent text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:scale-105 group"
+          >
+            <FolderOpen className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+            {t('ourWorks')}
+            <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+          </a>
+        </div>
       </div>
     </section>
   );
