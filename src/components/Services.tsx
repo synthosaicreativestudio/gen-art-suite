@@ -48,37 +48,37 @@ const Services = () => {
         {
           key: "ai_video",
           name: t('service.ai_video.name'),
-          description: "Создание видеороликов любой сложности — от короткой рекламы до полноценных фильмов",
+          description: t('service.ai_video.cat_description'),
           icon: <Video className="w-5 h-5" />
         },
         {
           key: "ai_photo",
           name: t('service.ai_photo.name'), 
-          description: "Разработка уникальных визуальных материалов без фотосессий",
+          description: t('service.ai_photo.cat_description'),
           icon: <Image className="w-5 h-5" />
         },
         {
           key: "ai_logo",
           name: t('service.ai_logo.name'),
-          description: "Быстрое создание уникального дизайна логотипа и полного бренд-пакета за 24 часа",
+          description: t('service.ai_logo.cat_description'),
           icon: <Palette className="w-5 h-5" />
         },
         {
           key: "ai_models",
           name: t('service.ai_models.name'),
-          description: "Реалистичные цифровые модели и виртуальная примерка одежды",
+          description: t('service.ai_models.cat_description'),
           icon: <Users className="w-5 h-5" />
         },
         {
           key: "ai_avatars",
           name: t('service.ai_avatars.name'),
-          description: "Создание цифрового аватара на основе вашего образа и голоса",
+          description: t('service.ai_avatars.cat_description'),
           icon: <User className="w-5 h-5" />
         },
         {
           key: "ai_music",
           name: t('service.ai_music.name'),
-          description: "Генерация авторских музыкальных композиций под заданный стиль и настроение",
+          description: t('service.ai_music.cat_description'),
           icon: <Music className="w-5 h-5" />
         }
       ]
@@ -92,13 +92,13 @@ const Services = () => {
         {
           key: "ai_presentations",
           name: t('service.ai_presentations.name'),
-          description: "Автоматическое создание стильных презентаций с графикой и анимацией",
+          description: t('service.ai_presentations.cat_description'),
           icon: <Presentation className="w-5 h-5" />
         },
         {
           key: "ai_voice",
           name: t('service.ai_voice.name'),
-          description: "Синтез голоса для озвучивания любого текста или видео",
+          description: t('service.ai_voice.cat_description'),
           icon: <Mic className="w-5 h-5" />
         }
       ]
@@ -112,98 +112,98 @@ const Services = () => {
         {
           key: "websites",
           name: t('service.websites.name'),
-          description: "Разработка сайтов «под ключ» с современным дизайном за 5–7 дней",
+          description: t('service.websites.cat_description'),
           icon: <Globe className="w-5 h-5" />
         },
         {
           key: "apps",
           name: t('service.apps.name'),
-          description: "Разработка MVP и готовых приложений с функциями ИИ",
+          description: t('service.apps.cat_description'),
           icon: <Smartphone className="w-5 h-5" />
         },
         {
           key: "automation",
           name: t('service.automation.name'),
-          description: "Автоматизация рутинных операций и управления CRM",
+          description: t('service.automation.cat_description'),
           icon: <Bot className="w-5 h-5" />
         }
       ]
     },
     {
-      title: "Аналитика и маркетинг",
-      description: "ИИ для оптимизации маркетинга и анализа данных",
+      title: t('category.analytics.title'),
+      description: t('category.analytics.description'),
       icon: <BarChart3 className="w-8 h-8" />,
       gradient: "from-orange-500 to-red-500",
       services: [
         {
-          name: "Digital-маркетинг и AI-аналитика",
-          description: "Оптимизация рекламных кампаний и прогнозирование трендов",
+          name: t('service.digital_marketing.name'),
+          description: t('service.digital_marketing.description'),
           icon: <BarChart3 className="w-5 h-5" />
         },
         {
-          name: "ИИ для управления базами данных",
-          description: "Автоматизация очистки, структурирования и интеграции данных",
+          name: t('service.data_management.name'),
+          description: t('service.data_management.description'),
           icon: <Database className="w-5 h-5" />
         },
         {
-          name: "ИИ для персонализации",
-          description: "Создание индивидуальных рекомендаций для каждого клиента",
+          name: t('service.personalization_ai.name'),
+          description: t('service.personalization_ai.description'),
           icon: <Target className="w-5 h-5" />
         },
         {
-          name: "ИИ для генерации холодных писем",
-          description: "Автоматическое создание персонализированных писем",
+          name: t('service.cold_emails.name'),
+          description: t('service.cold_emails.description'),
           icon: <Mail className="w-5 h-5" />
         }
       ]
     },
     {
-      title: "Виртуальные помощники и ассистенты",
-      description: "Чат-боты и персональные ИИ-помощники",
+      title: t('category.assistants.title'),
+      description: t('category.assistants.description'),
       icon: <MessageCircle className="w-8 h-8" />,
       gradient: "from-indigo-500 to-purple-500",
       services: [
         {
-          name: "Чат-боты",
-          description: "Круглосуточная поддержка клиентов и автоматизация продаж",
+          name: t('service.chatbots.name'),
+          description: t('service.chatbots.description'),
           icon: <MessageCircle className="w-5 h-5" />
         },
         {
-          name: "Персональные ассистенты",
-          description: "ИИ для планирования задач и управления календарём",
+          name: t('service.personal_assistants.name'),
+          description: t('service.personal_assistants.description'),
           icon: <Calendar className="w-5 h-5" />
         },
         {
-          name: "Цифровые сотрудники",
-          description: "Виртуальная рабочая сила для рутинных задач",
+          name: t('service.digital_employees.name'),
+          description: t('service.digital_employees.description'),
           icon: <UserCog className="w-5 h-5" />
         },
         {
-          name: "ИИ для анализа обратной связи",
-          description: "Анализ отзывов клиентов для выявления проблем",
+          name: t('service.feedback_analysis.name'),
+          description: t('service.feedback_analysis.description'),
           icon: <BarChart3 className="w-5 h-5" />
         }
       ]
     },
     {
-      title: "Внутренние бизнес-процессы",
-      description: "ИИ для управления персоналом и документооборота",
+      title: t('category.business.title'),
+      description: t('category.business.description'),
       icon: <Building className="w-8 h-8" />,
       gradient: "from-teal-500 to-blue-500",
       services: [
         {
-          name: "ИИ для управления персоналом",
-          description: "Автоматический скрининг резюме и оценка эффективности",
+          name: t('service.hr_management.name'),
+          description: t('service.hr_management.description'),
           icon: <UserCog className="w-5 h-5" />
         },
         {
-          name: "ИИ-помощники для создания документов",
-          description: "Автоматическое составление отчётов и презентаций",
+          name: t('service.document_creation.name'),
+          description: t('service.document_creation.description'),
           icon: <FileStack className="w-5 h-5" />
         },
         {
-          name: "ИИ для управления проектами",
-          description: "Прогнозирование рисков и оптимизация ресурсов",
+          name: t('service.project_management.name'),
+          description: t('service.project_management.description'),
           icon: <ClipboardList className="w-5 h-5" />
         }
       ]
@@ -338,7 +338,7 @@ const Services = () => {
                           {t('education.title')}
                         </CardTitle>
                         <CardDescription className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-300">
-                          Образовательные материалы и ресурсы
+                          {t('education.description')}
                         </CardDescription>
                       </div>
                     </div>

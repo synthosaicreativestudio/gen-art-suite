@@ -145,7 +145,51 @@ const translations = {
     'education.google': 'SYNTHOS Google',
 
     // Our Works
-    'ourWorks': 'Наши работы'
+    'ourWorks': 'Наши работы',
+
+    // Service descriptions in categories
+    'service.ai_video.cat_description': 'Создание видеороликов любой сложности — от короткой рекламы до полноценных фильмов',
+    'service.ai_photo.cat_description': 'Разработка уникальных визуальных материалов без фотосессий',
+    'service.ai_logo.cat_description': 'Быстрое создание уникального дизайна логотипа и полного бренд-пакета за 24 часа',
+    'service.ai_models.cat_description': 'Реалистичные цифровые модели и виртуальная примерка одежды',
+    'service.ai_avatars.cat_description': 'Создание цифрового аватара на основе вашего образа и голоса',
+    'service.ai_music.cat_description': 'Генерация авторских музыкальных композиций под заданный стиль и настроение',
+    'service.ai_presentations.cat_description': 'Автоматическое создание стильных презентаций с графикой и анимацией',
+    'service.ai_voice.cat_description': 'Синтез голоса для озвучивания любого текста или видео',
+    'service.websites.cat_description': 'Разработка сайтов «под ключ» с современным дизайном за 5–7 дней',
+    'service.apps.cat_description': 'Разработка MVP и готовых приложений с функциями ИИ',
+    'service.automation.cat_description': 'Автоматизация рутинных операций и управления CRM',
+
+    // Analytics services
+    'service.digital_marketing.name': 'Digital-маркетинг и AI-аналитика',
+    'service.digital_marketing.description': 'Оптимизация рекламных кампаний и прогнозирование трендов',
+    'service.data_management.name': 'ИИ для управления базами данных',
+    'service.data_management.description': 'Автоматизация очистки, структурирования и интеграции данных',
+    'service.personalization_ai.name': 'ИИ для персонализации',
+    'service.personalization_ai.description': 'Создание индивидуальных рекомендаций для каждого клиента',
+    'service.cold_emails.name': 'ИИ для генерации холодных писем',
+    'service.cold_emails.description': 'Автоматическое создание персонализированных писем',
+
+    // Assistant services
+    'service.chatbots.name': 'Чат-боты',
+    'service.chatbots.description': 'Круглосуточная поддержка клиентов и автоматизация продаж',
+    'service.personal_assistants.name': 'Персональные ассистенты',
+    'service.personal_assistants.description': 'ИИ для планирования задач и управления календарём',
+    'service.digital_employees.name': 'Цифровые сотрудники',
+    'service.digital_employees.description': 'Виртуальная рабочая сила для рутинных задач',
+    'service.feedback_analysis.name': 'ИИ для анализа обратной связи',
+    'service.feedback_analysis.description': 'Анализ отзывов клиентов для выявления проблем',
+
+    // Business services
+    'service.hr_management.name': 'ИИ для управления персоналом',
+    'service.hr_management.description': 'Автоматический скрининг резюме и оценка эффективности',
+    'service.document_creation.name': 'ИИ-помощники для создания документов',
+    'service.document_creation.description': 'Автоматическое составление отчётов и презентаций',
+    'service.project_management.name': 'ИИ для управления проектами',
+    'service.project_management.description': 'Прогнозирование рисков и оптимизация ресурсов',
+
+    // Education section
+    'education.description': 'Образовательные материалы и ресурсы'
   },
   EN: {
     // Header
@@ -283,7 +327,51 @@ const translations = {
     'education.google': 'SYNTHOS Google',
 
     // Our Works
-    'ourWorks': 'Our Works'
+    'ourWorks': 'Our Works',
+
+    // Service descriptions in categories
+    'service.ai_video.cat_description': 'Video content creation of any complexity — from short ads to full-length films',
+    'service.ai_photo.cat_description': 'Development of unique visual materials without photoshoots',
+    'service.ai_logo.cat_description': 'Fast creation of unique logo design and complete brand package in 24 hours',
+    'service.ai_models.cat_description': 'Realistic digital models and virtual clothing try-on',
+    'service.ai_avatars.cat_description': 'Creating digital avatar based on your image and voice',
+    'service.ai_music.cat_description': 'Generation of original musical compositions in specified style and mood',
+    'service.ai_presentations.cat_description': 'Automatic creation of stylish presentations with graphics and animation',
+    'service.ai_voice.cat_description': 'Voice synthesis for dubbing any text or video',
+    'service.websites.cat_description': 'Turnkey website development with modern design in 5-7 days',
+    'service.apps.cat_description': 'MVP and ready-made application development with AI features',
+    'service.automation.cat_description': 'Automation of routine operations and CRM management',
+
+    // Analytics services
+    'service.digital_marketing.name': 'Digital Marketing and AI Analytics',
+    'service.digital_marketing.description': 'Ad campaign optimization and trend forecasting',
+    'service.data_management.name': 'AI for Database Management',
+    'service.data_management.description': 'Automation of data cleaning, structuring and integration',
+    'service.personalization_ai.name': 'AI for Personalization',
+    'service.personalization_ai.description': 'Creating individual recommendations for each client',
+    'service.cold_emails.name': 'AI for Cold Email Generation',
+    'service.cold_emails.description': 'Automatic creation of personalized emails',
+
+    // Assistant services
+    'service.chatbots.name': 'Chatbots',
+    'service.chatbots.description': '24/7 customer support and sales automation',
+    'service.personal_assistants.name': 'Personal Assistants',
+    'service.personal_assistants.description': 'AI for task planning and calendar management',
+    'service.digital_employees.name': 'Digital Employees',
+    'service.digital_employees.description': 'Virtual workforce for routine tasks',
+    'service.feedback_analysis.name': 'AI for Feedback Analysis',
+    'service.feedback_analysis.description': 'Customer review analysis to identify issues',
+
+    // Business services
+    'service.hr_management.name': 'AI for HR Management',
+    'service.hr_management.description': 'Automatic resume screening and performance evaluation',
+    'service.document_creation.name': 'AI Assistants for Document Creation',
+    'service.document_creation.description': 'Automatic report and presentation creation',
+    'service.project_management.name': 'AI for Project Management',
+    'service.project_management.description': 'Risk forecasting and resource optimization',
+
+    // Education section
+    'education.description': 'Educational materials and resources'
   }
 };
 
