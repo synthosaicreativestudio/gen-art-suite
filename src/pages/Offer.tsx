@@ -39,7 +39,7 @@ const Offer = () => {
             Счёт: 40802810900007171417<br />
             Банк: АО «ТБанк»<br />
             БИК: 044525974<br />
-            Email: contact@synthos.ru<br />
+            Email: synthosaicreativestudio@gmail.com<br />
             Телефон: +79829103943
           </p>
         </div>
