@@ -1,12 +1,27 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "next-themes";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import heroDark from "@/assets/hero-panorama-dark.png";
+import heroLight from "@/assets/hero-panorama-light.png";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
+  const heroImage = theme === 'light' ? heroLight : heroDark;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
+      {/* Background panorama */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt=""
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+      </div>
+
       {/* Content */}
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         <h1 className="hero-enter text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 bg-gradient-to-r from-primary via-accent to-primary-glow bg-clip-text text-transparent leading-[1.1]">
