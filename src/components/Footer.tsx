@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="text-sm text-white/50 space-y-2">
           <p>© {new Date().getFullYear()} SYNTHOS AI. Все права защищены.</p>
           <p>
-            ИП [ВАШЕ ФИО] • ИНН: [ВАШ ИНН] • ОГРНИП: [ВАШ ОГРНИП]
+            ИП Марченко Роман Олегович • ИНН: 720302084520
           </p>
-          <p>Email: contact@ВАШ-ДОМЕН.ru</p>
+          <p>Email: contact@synthos.ru</p>
         </div>
         <div className="flex gap-4 text-sm text-white/70">
           <Link to="/offer" className="hover:text-white transition-colors">
