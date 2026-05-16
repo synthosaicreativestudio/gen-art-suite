@@ -73,6 +73,15 @@ const CTA = () => {
                     <PhoneCall className="w-4 h-4" />
                     Telegram
                   </a>
+                  <a 
+                    href="#" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-purple-500 hover:text-purple-400 transition-colors"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    MAX
+                  </a>
                 </div>
               </div>
             </div>
