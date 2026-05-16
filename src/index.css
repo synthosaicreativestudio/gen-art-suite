@@ -8,47 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Hi-tech AI Light Theme Colors */
-    --background: 195 100% 96%;
-    --foreground: 210 40% 15%;
+    /* Modern Tech Light Theme Colors */
+    --background: 0 0% 100%;
+    --foreground: 220 40% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 15%;
+    --card-foreground: 220 40% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 15%;
+    --popover-foreground: 220 40% 10%;
 
-    --primary: 195 100% 45%;
+    --primary: 230 80% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 180 100% 50%;
+    --primary-glow: 240 100% 70%;
     --fire-orange: 25 95% 53%;
 
-    --secondary: 195 50% 92%;
-    --secondary-foreground: 210 40% 20%;
+    --secondary: 220 15% 96%;
+    --secondary-foreground: 220 40% 15%;
 
-    --muted: 195 30% 88%;
-    --muted-foreground: 210 20% 40%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 40%;
 
-    --accent: 165 100% 40%;
+    --accent: 250 100% 65%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 195 30% 85%;
-    --input: 195 25% 90%;
-    --ring: 195 100% 45%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 230 80% 55%;
 
     --success: 142 71% 45%;
-    --success-foreground: 0 0% 98%;
+    --success-foreground: 0 0% 100%;
 
-    /* Hi-tech AI Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(195 100% 45%), hsl(180 100% 50%), hsl(165 100% 40%));
-    --gradient-secondary: linear-gradient(135deg, hsl(195 50% 92%), hsl(195 30% 88%));
-    --gradient-hero: linear-gradient(135deg, hsl(195 100% 96%), hsl(195 50% 92%));
+    /* Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(230 80% 55%), hsl(250 100% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 15% 96%), hsl(220 15% 92%));
+    --gradient-hero: radial-gradient(circle at top center, hsl(230 80% 98%), hsl(0 0% 100%) 60%);
 
-    --shadow-glow: 0 0 40px hsl(195 100% 45% / 0.3);
-    --shadow-elegant: 0 20px 40px -10px hsl(195 100% 45% / 0.2);
+    --shadow-glow: 0 0 30px hsl(230 80% 55% / 0.15);
+    --shadow-elegant: 0 10px 40px -10px hsl(220 40% 10% / 0.08);
 
     --animation-float: float 6s ease-in-out infinite;
     --animation-glow: glow 2s ease-in-out infinite alternate;
@@ -70,6 +70,8 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --grid-color: rgba(0, 0, 0, 0.04);
   }
 
   .dark {
@@ -118,6 +120,8 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --grid-color: rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -128,8 +132,21 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    background: var(--gradient-hero);
+    background-color: hsl(var(--background));
+    background-image: 
+      var(--gradient-hero),
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background-position: 0 0, 0 0, 0 0;
+    background-attachment: fixed;
+    animation: grid-scrolling 20s linear infinite;
     min-height: 100vh;
+  }
+
+  @keyframes grid-scrolling {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 0 0, 40px 40px, 40px 40px; }
   }
 
   @keyframes float {
