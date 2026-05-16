@@ -9,7 +9,10 @@ const Footer = () => {
           <p>
             ИП Марченко Роман Олегович • ИНН: 720302084520
           </p>
-          <p>Email: contact@synthos.ru</p>
+          <p>
+            Email: contact@synthos.ru<br />
+            Телефон: +79829103943
+          </p>
         </div>
         <div className="flex gap-4 text-sm text-white/70">
           <Link to="/offer" className="hover:text-white transition-colors">
