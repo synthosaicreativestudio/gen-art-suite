@@ -137,127 +137,81 @@ All colors MUST be HSL.
       var(--gradient-hero),
       linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
-    background-position: 0 0, 0 0, 0 0;
+    background-size: 100% 100%, 60px 60px, 60px 60px;
     background-attachment: fixed;
-    animation: grid-scrolling 20s linear infinite;
     min-height: 100vh;
   }
 
-  @keyframes grid-scrolling {
-    0% { background-position: 0 0, 0 0, 0 0; }
-    100% { background-position: 0 0, 40px 40px, 40px 40px; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-
-  @keyframes glow {
-    from { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
-    to { box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--accent) / 0.3); }
-  }
-
-  .animate-float {
-    animation: var(--animation-float);
-  }
-
-  .animate-glow {
-    animation: var(--animation-glow);
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  /* Scroll Reveal Animations */
+  .scroll-reveal {
     opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
+  .scroll-reveal.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .stagger-item.scroll-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero entrance animation */
+  .hero-enter {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroEntrance 0.8s ease-out 0.2s forwards;
+  }
+
+  .hero-enter-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroEntrance 0.8s ease-out 0.5s forwards;
+  }
+
+  .hero-enter-delay-2 {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroEntrance 0.8s ease-out 0.8s forwards;
+  }
+
+  @keyframes heroEntrance {
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
 
-  /* Float animation for decorative elements */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-15px) rotate(2deg); }
-    66% { transform: translateY(-5px) rotate(-1deg); }
+  /* Scroll indicator bounce */
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(8px); opacity: 1; }
   }
-  
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
+
+  .animate-scroll-bounce {
+    animation: scrollBounce 2s ease-in-out infinite;
   }
-  
-  /* Gentle pulse animation */
-  @keyframes gentle-pulse {
-    0%, 100% { 
-      opacity: 0.8;
-      transform: scale(1) rotate(0deg);
-    }
-    50% { 
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .stagger-item,
+    .hero-enter,
+    .hero-enter-delay,
+    .hero-enter-delay-2 {
       opacity: 1;
-      transform: scale(1.1) rotate(180deg);
+      transform: none;
+      animation: none;
+      transition: none;
     }
-  }
-  
-  .animate-gentle-pulse {
-    animation: gentle-pulse 4s ease-in-out infinite;
-  }
-  
-  .animate-ai-pulse {
-    animation: ai-pulse 15s ease-in-out infinite alternate;
-  }
-
-  /* 3D Text Effect for SYNTHOS AI */
-  .synthos-3d-text {
-    color: #FFD700;
-    text-shadow: 
-      1px 1px 0 #B8860B,
-      2px 2px 0 #B8860B,
-      3px 3px 0 #B8860B,
-      4px 4px 0 #B8860B,
-      5px 5px 0 #B8860B,
-      6px 6px 0 #B8860B,
-      7px 7px 0 #B8860B,
-      8px 8px 0 #B8860B,
-      9px 9px 0 rgba(0,0,0,0.7),
-      10px 10px 0 rgba(0,0,0,0.6),
-      11px 11px 0 rgba(0,0,0,0.5),
-      12px 12px 0 rgba(0,0,0,0.4),
-      13px 13px 0 rgba(0,0,0,0.3),
-      14px 14px 0 rgba(0,0,0,0.2),
-      15px 15px 0 rgba(0,0,0,0.1),
-      16px 16px 10px rgba(0,0,0,0.4),
-      20px 20px 15px rgba(0,0,0,0.3),
-      25px 25px 20px rgba(0,0,0,0.2);
-    transform: perspective(1000px) rotateX(25deg);
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 0 10px #FFD700);
-  }
-
-  .synthos-3d-text:hover {
-    transform: perspective(1000px) rotateX(30deg) scale(1.05);
-    filter: drop-shadow(0 0 15px #FFD700);
-  }
-}
-
-@keyframes ai-pulse {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2) rotate(180deg);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1) rotate(360deg);
-    opacity: 0.7;
   }
 }
