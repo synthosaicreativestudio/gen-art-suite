@@ -3,6 +3,7 @@ import Services from "@/components/Services";
 import Features from "@/components/Features";
 import CTA from "@/components/CTA";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Services />
       <Features />
       <CTA />
+      <Footer />
     </div>
   );
 };
