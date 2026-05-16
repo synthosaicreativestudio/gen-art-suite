@@ -74,7 +74,7 @@ const CTA = () => {
                     Telegram
                   </a>
                   <a 
-                    href="#" 
+                    href="https://max.ru/u/f9LHodD0cOLmZXzWH1vefWtpGbKPAwszwoXOy2aVrkFjFNlbXpVuoG0g-0A" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-purple-500 hover:text-purple-400 transition-colors"
