@@ -134,7 +134,6 @@ const CartSheet = () => {
 
             <form name="TinkoffPayForm" ref={formRef} className="hidden" onSubmit={(e) => { e.preventDefault(); handlePayment(); }}>
               <input type="hidden" name="terminalkey" value="1778844937330DEMO" />
-              <input type="hidden" name="frame" value="true" />
               <input type="hidden" name="language" value="ru" />
               <input type="hidden" name="amount" value={total} />
               <input type="hidden" name="order" value={`TEST_${Date.now()}`} />
