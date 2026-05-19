@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { useCart } from "@/contexts/CartContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/components/ui/use-toast";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 declare global {
   interface Window {
@@ -15,7 +15,7 @@ declare global {
 }
 
 const CartSheet = () => {
-  const { items, removeItem, total, clearCart } = useCart();
+  const { items, addItem, removeItem, total, clearCart } = useCart();
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isPaying, setIsPaying] = useState(false);
@@ -39,6 +39,26 @@ const CartSheet = () => {
       }, 5000);
     }
   };
+
+  // Читаем параметры из URL для интеграции с ботом
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tgId = params.get('tg_id');
+    const payVpn = params.get('pay_vpn');
+    
+    if (tgId) {
+      localStorage.setItem('tg_id', tgId);
+    }
+
+    if (payVpn === '1') {
+      if (!items.some(i => i.id === 'it_consulting_test')) {
+         addItem({ id: 'it_consulting_test', name: 'IT-консалтинг и безопасность (Тестовый доступ)', price: 1 });
+      }
+    }
+  }, [items, addItem]);
+
+  const tgId = localStorage.getItem('tg_id');
+  const orderId = tgId ? `TG_${tgId}_${Date.now()}` : `ORDER_${Date.now()}`;
 
   return (
     <Sheet>
@@ -137,7 +157,7 @@ const CartSheet = () => {
               <input type="hidden" name="frame" value="false" />
               <input type="hidden" name="language" value="ru" />
               <input type="hidden" name="amount" value={total} />
-              <input type="hidden" name="order" value={`ORDER_${Date.now()}`} />
+              <input type="hidden" name="order" value={orderId} />
               <input type="hidden" name="description" value={items.map(i => i.name).join(', ').substring(0, 250)} />
               <input type="hidden" name="name" value="Заказ услуг" />
               <input type="hidden" name="email" value="test@example.com" />
