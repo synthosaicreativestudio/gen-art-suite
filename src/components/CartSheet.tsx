@@ -19,7 +19,7 @@ const CartSheet = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isPaying, setIsPaying] = useState(false);
-  const [paymentMethod, setPaymentMethod] = useState("card");
+  const [autoPay, setAutoPay] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handlePayment = () => {
@@ -61,9 +61,20 @@ const CartSheet = () => {
       const selectedPlan = plans[planId];
       if (selectedPlan && !items.some(i => i.id === planId)) {
          addItem({ id: planId, name: selectedPlan.name, price: selectedPlan.price });
+         setAutoPay(true);
       }
     }
   }, [items, addItem]);
+
+  // Эффект для автоматического вызова оплаты после обновления стейта корзины
+  useEffect(() => {
+    if (autoPay && total > 0 && formRef.current) {
+      setAutoPay(false);
+      // Очищаем URL, чтобы не было повторных вызовов при перезагрузке
+      window.history.replaceState({}, document.title, window.location.pathname);
+      handlePayment();
+    }
+  }, [autoPay, total]);
 
   const tgId = localStorage.getItem('tg_id');
   const orderId = tgId ? `TG_${tgId}_${Date.now()}` : `ORDER_${Date.now()}`;
@@ -118,47 +129,7 @@ const CartSheet = () => {
               <span className="text-xl text-primary">{total.toLocaleString('ru-RU')} ₽</span>
             </div>
 
-            <div className="space-y-3 pb-4">
-              <h4 className="text-sm font-medium text-muted-foreground">Способ оплаты</h4>
-              <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod} className="gap-3">
-                <div>
-                  <RadioGroupItem value="card" id="card" className="peer sr-only" />
-                  <Label
-                    htmlFor="card"
-                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <CreditCard className="w-5 h-5 text-primary" />
-                      <span className="font-medium">Банковская карта</span>
-                    </div>
-                  </Label>
-                </div>
-                <div>
-                  <RadioGroupItem value="sbp" id="sbp" className="peer sr-only" />
-                  <Label
-                    htmlFor="sbp"
-                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <Smartphone className="w-5 h-5 text-primary" />
-                      <span className="font-medium">СБП (Без ввода карты)</span>
-                    </div>
-                  </Label>
-                </div>
-                <div>
-                  <RadioGroupItem value="qr" id="qr" className="peer sr-only" />
-                  <Label
-                    htmlFor="qr"
-                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <QrCode className="w-5 h-5 text-primary" />
-                      <span className="font-medium">QR-код (T-Pay)</span>
-                    </div>
-                  </Label>
-                </div>
-              </RadioGroup>
-            </div>
+
 
             <form name="TinkoffPayForm" ref={formRef} className="hidden" onSubmit={(e) => { e.preventDefault(); handlePayment(); }}>
               <input type="hidden" name="terminalkey" value="1778920894454" />
@@ -171,8 +142,7 @@ const CartSheet = () => {
               <input type="hidden" name="email" value="test@example.com" />
               <input type="hidden" name="SuccessURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
               <input type="hidden" name="FailURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
-              {/* Optional: payType parameter for specific method if supported by T-Bank widget, otherwise it just opens the widget */}
-              <input type="hidden" name="payType" value={paymentMethod === 'sbp' ? 'O' : paymentMethod === 'qr' ? 'T' : 'O'} />
+              <input type="hidden" name="payType" value="O" />
             </form>
 
             <Button 
@@ -180,10 +150,7 @@ const CartSheet = () => {
               onClick={handlePayment}
               disabled={isPaying}
             >
-              {isPaying ? "Открытие платежного окна..." : (
-                paymentMethod === 'card' ? 'Оплатить картой' : 
-                paymentMethod === 'sbp' ? 'Оплатить через СБП' : 'Получить QR-код'
-              )}
+              {isPaying ? "Открытие платежного окна..." : "Оплатить"}
             </Button>
           </div>
         )}
