@@ -1,5 +1,8 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/components/ui/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import {
@@ -28,12 +31,16 @@ import {
   Play,
   Send,
   FolderOpen,
-  ExternalLink
+  ExternalLink,
+  Plus,
+  Check
 } from "lucide-react";
 
 const Services = () => {
   const { t } = useLanguage();
   const sectionRef = useScrollReveal<HTMLElement>();
+  const { items, addItem } = useCart();
+  const { toast } = useToast();
 
   const serviceCategories = [
     {
@@ -42,12 +49,12 @@ const Services = () => {
       icon: <Video className="w-6 h-6" />,
       gradient: "from-purple-500 to-pink-500",
       services: [
-        { name: t('service.ai_video.name'), icon: <Video className="w-4 h-4" /> },
-        { name: t('service.ai_photo.name'), icon: <Image className="w-4 h-4" /> },
-        { name: t('service.ai_logo.name'), icon: <Palette className="w-4 h-4" /> },
-        { name: t('service.ai_models.name'), icon: <Users className="w-4 h-4" /> },
-        { name: t('service.ai_avatars.name'), icon: <User className="w-4 h-4" /> },
-        { name: t('service.ai_music.name'), icon: <Music className="w-4 h-4" /> },
+        { id: 'ai_video', name: t('service.ai_video.name'), icon: <Video className="w-4 h-4" />, price: 15000 },
+        { id: 'ai_photo', name: t('service.ai_photo.name'), icon: <Image className="w-4 h-4" />, price: 3000 },
+        { id: 'ai_logo', name: t('service.ai_logo.name'), icon: <Palette className="w-4 h-4" />, price: 8000 },
+        { id: 'ai_models', name: t('service.ai_models.name'), icon: <Users className="w-4 h-4" />, price: 12000 },
+        { id: 'ai_avatars', name: t('service.ai_avatars.name'), icon: <User className="w-4 h-4" />, price: 25000 },
+        { id: 'ai_music', name: t('service.ai_music.name'), icon: <Music className="w-4 h-4" />, price: 7000 },
       ]
     },
     {
@@ -56,8 +63,8 @@ const Services = () => {
       icon: <Presentation className="w-6 h-6" />,
       gradient: "from-blue-500 to-cyan-500",
       services: [
-        { name: t('service.ai_presentations.name'), icon: <Presentation className="w-4 h-4" /> },
-        { name: t('service.ai_voice.name'), icon: <Mic className="w-4 h-4" /> },
+        { id: 'ai_presentations', name: t('service.ai_presentations.name'), icon: <Presentation className="w-4 h-4" />, price: 10000 },
+        { id: 'ai_voice', name: t('service.ai_voice.name'), icon: <Mic className="w-4 h-4" />, price: 5000 },
       ]
     },
     {
@@ -66,9 +73,9 @@ const Services = () => {
       icon: <Globe className="w-6 h-6" />,
       gradient: "from-green-500 to-emerald-500",
       services: [
-        { name: t('service.websites.name'), icon: <Globe className="w-4 h-4" /> },
-        { name: t('service.apps.name'), icon: <Smartphone className="w-4 h-4" /> },
-        { name: t('service.automation.name'), icon: <Bot className="w-4 h-4" /> },
+        { id: 'websites', name: t('service.websites.name'), icon: <Globe className="w-4 h-4" />, price: 30000 },
+        { id: 'apps', name: t('service.apps.name'), icon: <Smartphone className="w-4 h-4" />, price: 80000 },
+        { id: 'automation', name: t('service.automation.name'), icon: <Bot className="w-4 h-4" />, price: 50000 },
       ]
     },
     {
@@ -77,10 +84,10 @@ const Services = () => {
       icon: <BarChart3 className="w-6 h-6" />,
       gradient: "from-orange-500 to-red-500",
       services: [
-        { name: t('service.digital_marketing.name'), icon: <BarChart3 className="w-4 h-4" /> },
-        { name: t('service.data_management.name'), icon: <Database className="w-4 h-4" /> },
-        { name: t('service.personalization_ai.name'), icon: <Target className="w-4 h-4" /> },
-        { name: t('service.cold_emails.name'), icon: <Mail className="w-4 h-4" /> },
+        { id: 'digital_marketing', name: t('service.digital_marketing.name'), icon: <BarChart3 className="w-4 h-4" />, price: 20000 },
+        { id: 'data_management', name: t('service.data_management.name'), icon: <Database className="w-4 h-4" />, price: 25000 },
+        { id: 'personalization_ai', name: t('service.personalization_ai.name'), icon: <Target className="w-4 h-4" />, price: 35000 },
+        { id: 'cold_emails', name: t('service.cold_emails.name'), icon: <Mail className="w-4 h-4" />, price: 10000 },
       ]
     },
     {
@@ -89,10 +96,10 @@ const Services = () => {
       icon: <MessageCircle className="w-6 h-6" />,
       gradient: "from-indigo-500 to-purple-500",
       services: [
-        { name: t('service.chatbots.name'), icon: <MessageCircle className="w-4 h-4" /> },
-        { name: t('service.personal_assistants.name'), icon: <Calendar className="w-4 h-4" /> },
-        { name: t('service.digital_employees.name'), icon: <UserCog className="w-4 h-4" /> },
-        { name: t('service.feedback_analysis.name'), icon: <BarChart3 className="w-4 h-4" /> },
+        { id: 'chatbots', name: t('service.chatbots.name'), icon: <MessageCircle className="w-4 h-4" />, price: 15000 },
+        { id: 'personal_assistants', name: t('service.personal_assistants.name'), icon: <Calendar className="w-4 h-4" />, price: 12000 },
+        { id: 'digital_employees', name: t('service.digital_employees.name'), icon: <UserCog className="w-4 h-4" />, price: 30000 },
+        { id: 'feedback_analysis', name: t('service.feedback_analysis.name'), icon: <BarChart3 className="w-4 h-4" />, price: 18000 },
       ]
     },
     {
@@ -101,9 +108,9 @@ const Services = () => {
       icon: <Building className="w-6 h-6" />,
       gradient: "from-teal-500 to-blue-500",
       services: [
-        { name: t('service.hr_management.name'), icon: <UserCog className="w-4 h-4" /> },
-        { name: t('service.document_creation.name'), icon: <FileStack className="w-4 h-4" /> },
-        { name: t('service.project_management.name'), icon: <ClipboardList className="w-4 h-4" /> },
+        { id: 'hr_management', name: t('service.hr_management.name'), icon: <UserCog className="w-4 h-4" />, price: 40000 },
+        { id: 'document_creation', name: t('service.document_creation.name'), icon: <FileStack className="w-4 h-4" />, price: 15000 },
+        { id: 'project_management', name: t('service.project_management.name'), icon: <ClipboardList className="w-4 h-4" />, price: 25000 },
       ]
     }
   ];
@@ -142,10 +149,29 @@ const Services = () => {
                   {category.services.map((service, serviceIndex) => (
                     <div
                       key={serviceIndex}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/60 transition-colors duration-200"
+                      className="flex items-center justify-between gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/60 transition-colors duration-200 group"
                     >
-                      <span className="text-primary">{service.icon}</span>
-                      <span className="text-sm font-medium text-foreground">{service.name}</span>
+                      <div className="flex items-center gap-3">
+                        <span className="text-primary">{service.icon}</span>
+                        <div className="flex flex-col">
+                          <span className="text-sm font-medium text-foreground">{service.name}</span>
+                          <span className="text-xs text-muted-foreground">{service.price.toLocaleString('ru-RU')} ₽</span>
+                        </div>
+                      </div>
+                      <Button
+                        size="sm"
+                        variant={items.some(i => i.id === service.id) ? "secondary" : "default"}
+                        className="h-8 w-8 p-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity md:opacity-100"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (!items.some(i => i.id === service.id)) {
+                            addItem({ id: service.id, name: service.name, price: service.price });
+                            toast({ title: "Добавлено в корзину", description: service.name });
+                          }
+                        }}
+                      >
+                        {items.some(i => i.id === service.id) ? <Check className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                      </Button>
                     </div>
                   ))}
                 </div>

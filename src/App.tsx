@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { CartProvider } from "@/contexts/CartContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Offer from "./pages/Offer";
@@ -16,7 +17,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <LanguageProvider>
-        <TooltipProvider>
+        <CartProvider>
+          <TooltipProvider>
           <Toaster />
           <Sonner />
           <HashRouter>
@@ -28,7 +30,8 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </HashRouter>
-        </TooltipProvider>
+          </TooltipProvider>
+        </CartProvider>
       </LanguageProvider>
     </ThemeProvider>
   </QueryClientProvider>

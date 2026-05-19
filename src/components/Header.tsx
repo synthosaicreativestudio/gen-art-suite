@@ -1,5 +1,6 @@
 import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "./LanguageToggle";
+import CartSheet from "./CartSheet";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
@@ -28,6 +29,7 @@ const Header = () => {
           <div className="flex items-center gap-3">
             <LanguageToggle />
             <ThemeToggle />
+            <CartSheet />
           </div>
         </div>
       </div>
