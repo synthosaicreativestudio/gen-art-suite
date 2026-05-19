@@ -4,25 +4,37 @@ import { ShoppingCart, Trash2 } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+declare global {
+  interface Window {
+    pay: (form: HTMLFormElement) => void;
+  }
+}
 
 const CartSheet = () => {
   const { items, removeItem, total, clearCart } = useCart();
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isPaying, setIsPaying] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handlePayment = () => {
-    setIsPaying(true);
-    // Simulate payment process
-    setTimeout(() => {
-      setIsPaying(false);
-      clearCart();
-      toast({
-        title: "Оплата прошла успешно!",
-        description: "Спасибо за ваш заказ. Тестовый платеж завершен.",
-      });
-    }, 1500);
+    if (!window.pay) {
+      toast({ title: "Ошибка", description: "Платежный шлюз недоступен. Обновите страницу.", variant: "destructive" });
+      return;
+    }
+    
+    if (formRef.current) {
+      setIsPaying(true);
+      window.pay(formRef.current);
+      // Очистка корзины может происходить по Webhook на бэкенде, 
+      // но для тестового демо-приложения мы очистим корзину локально:
+      setTimeout(() => {
+        clearCart();
+        setIsPaying(false);
+      }, 5000);
+    }
   };
 
   return (
@@ -74,12 +86,24 @@ const CartSheet = () => {
               <span>Итого:</span>
               <span className="text-xl text-primary">{total.toLocaleString('ru-RU')} ₽</span>
             </div>
+
+            <form name="TinkoffPayForm" ref={formRef} className="hidden" onSubmit={(e) => { e.preventDefault(); handlePayment(); }}>
+              <input type="hidden" name="terminalkey" value="1778844937330DEMO" />
+              <input type="hidden" name="frame" value="true" />
+              <input type="hidden" name="language" value="ru" />
+              <input type="hidden" name="amount" value={total} />
+              <input type="hidden" name="order" value={`TEST_${Date.now()}`} />
+              <input type="hidden" name="description" value={items.map(i => i.name).join(', ').substring(0, 250)} />
+              <input type="hidden" name="name" value="Тестовый Заказ" />
+              <input type="hidden" name="email" value="test@example.com" />
+            </form>
+
             <Button 
               className="w-full h-12 text-lg font-medium bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-opacity" 
               onClick={handlePayment}
               disabled={isPaying}
             >
-              {isPaying ? "Ожидание оплаты..." : "Оплатить (Тест)"}
+              {isPaying ? "Открытие платежного окна..." : "Оплатить (Тест)"}
             </Button>
           </div>
         )}
