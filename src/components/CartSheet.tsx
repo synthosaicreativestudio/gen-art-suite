@@ -133,13 +133,13 @@ const CartSheet = () => {
             </div>
 
             <form name="TinkoffPayForm" ref={formRef} className="hidden" onSubmit={(e) => { e.preventDefault(); handlePayment(); }}>
-              <input type="hidden" name="terminalkey" value="1778920894408DEMO" />
+              <input type="hidden" name="terminalkey" value="1778920894454" />
               <input type="hidden" name="frame" value="false" />
               <input type="hidden" name="language" value="ru" />
               <input type="hidden" name="amount" value={total} />
-              <input type="hidden" name="order" value={`TEST_${Date.now()}`} />
+              <input type="hidden" name="order" value={`ORDER_${Date.now()}`} />
               <input type="hidden" name="description" value={items.map(i => i.name).join(', ').substring(0, 250)} />
-              <input type="hidden" name="name" value="Тестовый Заказ" />
+              <input type="hidden" name="name" value="Заказ услуг" />
               <input type="hidden" name="email" value="test@example.com" />
               <input type="hidden" name="SuccessURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
               <input type="hidden" name="FailURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
