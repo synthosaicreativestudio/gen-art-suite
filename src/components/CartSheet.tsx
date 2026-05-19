@@ -1,6 +1,8 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Trash2 } from "lucide-react";
+import { ShoppingCart, Trash2, CreditCard, Smartphone, QrCode } from "lucide-react";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Label } from "@/components/ui/label";
 import { useCart } from "@/contexts/CartContext";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/components/ui/use-toast";
@@ -17,6 +19,7 @@ const CartSheet = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [isPaying, setIsPaying] = useState(false);
+  const [paymentMethod, setPaymentMethod] = useState("card");
   const formRef = useRef<HTMLFormElement>(null);
 
   const handlePayment = () => {
@@ -87,6 +90,48 @@ const CartSheet = () => {
               <span className="text-xl text-primary">{total.toLocaleString('ru-RU')} ₽</span>
             </div>
 
+            <div className="space-y-3 pb-4">
+              <h4 className="text-sm font-medium text-muted-foreground">Способ оплаты</h4>
+              <RadioGroup value={paymentMethod} onValueChange={setPaymentMethod} className="gap-3">
+                <div>
+                  <RadioGroupItem value="card" id="card" className="peer sr-only" />
+                  <Label
+                    htmlFor="card"
+                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
+                  >
+                    <div className="flex items-center gap-3">
+                      <CreditCard className="w-5 h-5 text-primary" />
+                      <span className="font-medium">Банковская карта</span>
+                    </div>
+                  </Label>
+                </div>
+                <div>
+                  <RadioGroupItem value="sbp" id="sbp" className="peer sr-only" />
+                  <Label
+                    htmlFor="sbp"
+                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
+                  >
+                    <div className="flex items-center gap-3">
+                      <Smartphone className="w-5 h-5 text-primary" />
+                      <span className="font-medium">СБП (Без ввода карты)</span>
+                    </div>
+                  </Label>
+                </div>
+                <div>
+                  <RadioGroupItem value="qr" id="qr" className="peer sr-only" />
+                  <Label
+                    htmlFor="qr"
+                    className="flex items-center justify-between rounded-xl border-2 border-muted bg-transparent p-4 hover:bg-secondary/50 peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary cursor-pointer transition-all"
+                  >
+                    <div className="flex items-center gap-3">
+                      <QrCode className="w-5 h-5 text-primary" />
+                      <span className="font-medium">QR-код (T-Pay)</span>
+                    </div>
+                  </Label>
+                </div>
+              </RadioGroup>
+            </div>
+
             <form name="TinkoffPayForm" ref={formRef} className="hidden" onSubmit={(e) => { e.preventDefault(); handlePayment(); }}>
               <input type="hidden" name="terminalkey" value="1778844937330DEMO" />
               <input type="hidden" name="frame" value="true" />
@@ -96,6 +141,8 @@ const CartSheet = () => {
               <input type="hidden" name="description" value={items.map(i => i.name).join(', ').substring(0, 250)} />
               <input type="hidden" name="name" value="Тестовый Заказ" />
               <input type="hidden" name="email" value="test@example.com" />
+              {/* Optional: payType parameter for specific method if supported by T-Bank widget, otherwise it just opens the widget */}
+              <input type="hidden" name="payType" value={paymentMethod === 'sbp' ? 'O' : paymentMethod === 'qr' ? 'T' : 'O'} />
             </form>
 
             <Button 
@@ -103,7 +150,10 @@ const CartSheet = () => {
               onClick={handlePayment}
               disabled={isPaying}
             >
-              {isPaying ? "Открытие платежного окна..." : "Оплатить (Тест)"}
+              {isPaying ? "Открытие платежного окна..." : (
+                paymentMethod === 'card' ? 'Оплатить картой' : 
+                paymentMethod === 'sbp' ? 'Оплатить через СБП' : 'Получить QR-код'
+              )}
             </Button>
           </div>
         )}
