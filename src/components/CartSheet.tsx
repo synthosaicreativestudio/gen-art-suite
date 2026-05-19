@@ -141,8 +141,8 @@ const CartSheet = () => {
               <input type="hidden" name="description" value={items.map(i => i.name).join(', ').substring(0, 250)} />
               <input type="hidden" name="name" value="Тестовый Заказ" />
               <input type="hidden" name="email" value="test@example.com" />
-              <input type="hidden" name="successURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
-              <input type="hidden" name="failURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
+              <input type="hidden" name="SuccessURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
+              <input type="hidden" name="FailURL" value="https://synthosaicreativestudio.github.io/gen-art-suite/" />
               {/* Optional: payType parameter for specific method if supported by T-Bank widget, otherwise it just opens the widget */}
               <input type="hidden" name="payType" value={paymentMethod === 'sbp' ? 'O' : paymentMethod === 'qr' ? 'T' : 'O'} />
             </form>
