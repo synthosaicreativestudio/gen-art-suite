@@ -111,7 +111,10 @@ const Services = () => {
         { id: 'hr_management', name: t('service.hr_management.name'), icon: <UserCog className="w-4 h-4" />, price: 40000 },
         { id: 'document_creation', name: t('service.document_creation.name'), icon: <FileStack className="w-4 h-4" />, price: 15000 },
         { id: 'project_management', name: t('service.project_management.name'), icon: <ClipboardList className="w-4 h-4" />, price: 25000 },
-        { id: 'it_consulting_test', name: 'IT-консалтинг и безопасность (Тестовый доступ)', icon: <Globe className="w-4 h-4" />, price: 1 },
+        { id: 'it_consulting_1m', name: 'IT-консалтинг и безопасность (Базовый)', icon: <Globe className="w-4 h-4" />, price: 200 },
+        { id: 'it_consulting_3m', name: 'IT-консалтинг и безопасность (Стандарт)', icon: <Globe className="w-4 h-4" />, price: 500 },
+        { id: 'it_consulting_6m', name: 'IT-консалтинг и безопасность (Оптимальный)', icon: <Globe className="w-4 h-4" />, price: 1000 },
+        { id: 'it_consulting_12m', name: 'IT-консалтинг и безопасность (Премиум)', icon: <Globe className="w-4 h-4" />, price: 1500 },
       ]
     }
   ];

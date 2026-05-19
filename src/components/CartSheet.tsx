@@ -44,15 +44,23 @@ const CartSheet = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const tgId = params.get('tg_id');
-    const payVpn = params.get('pay_vpn');
+    const planId = params.get('plan'); // e.g. it_consulting_1m
     
     if (tgId) {
       localStorage.setItem('tg_id', tgId);
     }
 
-    if (payVpn === '1') {
-      if (!items.some(i => i.id === 'it_consulting_test')) {
-         addItem({ id: 'it_consulting_test', name: 'IT-консалтинг и безопасность (Тестовый доступ)', price: 1 });
+    if (planId) {
+      const plans: Record<string, {name: string, price: number}> = {
+        'it_consulting_1m': { name: 'IT-консалтинг и безопасность (Базовый)', price: 200 },
+        'it_consulting_3m': { name: 'IT-консалтинг и безопасность (Стандарт)', price: 500 },
+        'it_consulting_6m': { name: 'IT-консалтинг и безопасность (Оптимальный)', price: 1000 },
+        'it_consulting_12m': { name: 'IT-консалтинг и безопасность (Премиум)', price: 1500 }
+      };
+
+      const selectedPlan = plans[planId];
+      if (selectedPlan && !items.some(i => i.id === planId)) {
+         addItem({ id: planId, name: selectedPlan.name, price: selectedPlan.price });
       }
     }
   }, [items, addItem]);
